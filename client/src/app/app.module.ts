@@ -15,6 +15,8 @@ import { NvD3Module } from 'ng2-nvd3';
 import 'd3';
 import 'nvd3';
 import { DonationService } from './shared/donation/donation.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -68,7 +70,8 @@ const appRoutes: Routes = [
     MatListModule,
     MatToolbarModule,
     NvD3Module,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [DonationService],
   bootstrap: [AppComponent]

@@ -13,7 +13,10 @@ import { D3ChartService } from './d3chart.service';
   encapsulation: ViewEncapsulation.None
 })
 export class ThanksComponent implements OnInit {
-  donations: any;
+  donations: any = {
+    time: 0,
+    money: 0
+  };
   donationData: any;
   chartOptions: any;
   sub: Subscription;
@@ -36,7 +39,6 @@ export class ThanksComponent implements OnInit {
           color: '#15F94E'
         }
       ];
-      console.log('donationData', this.donationData);
     }, error => console.error(error));
   }
 }

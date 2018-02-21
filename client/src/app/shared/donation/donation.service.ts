@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class DonationService {
-  public API = '//localhost:8080/api';
+  public API = 'http://localhost:8080/api';
   public DONATE_MONEY_API = this.API + '/donate-money';
   public DONATE_TIME_API = this.API + '/donate-time';
 

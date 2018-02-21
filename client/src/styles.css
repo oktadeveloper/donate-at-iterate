@@ -3,7 +3,7 @@
 
 body {
   margin: 0;
-  font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+  font-family: 'Proxima Nova', Helvetica, Arial, sans-serif;
   background-color: #424242;
 }
 
@@ -14,7 +14,7 @@ mat-card-content {
 
 mat-card-actions {
   text-align: center;
-  margin-bottom: 20px !important;
+  margin-bottom: 10px !important;
 }
 
 mat-card-actions.stacked button {
@@ -23,9 +23,28 @@ mat-card-actions.stacked button {
   min-width: 400px;
 }
 
+@media only screen and (orientation: portrait)  {
+  mat-card-actions {
+    margin-bottom: 5px !important;
+  }
+
+  mat-card-actions button {
+    width: 80%;
+  }
+
+  mat-card-actions button:last-child {
+    margin-top: 10px !important;
+  }
+
+  mat-card-actions.stacked button {
+    width: 80%;
+    min-width: 200px;
+  }
+}
+
 h2 {
   text-align: center;
-  margin: 30px;
+  margin: 20px;
 }
 
 a {
