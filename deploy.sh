@@ -18,8 +18,8 @@ if ! echo "$(heroku plugins)" | grep -q heroku-cli-deploy; then
   heroku plugins:install heroku-cli-deploy
 fi
 
-if ! echo "$(git remote -v)" | grep -q donate-server; then
-  server_app=donate-server
+if ! echo "$(git remote -v)" | grep -q iterate-donate-server; then
+  server_app=iterate-donate-server
   heroku create -r server $server_app
 else
   server_app=$(heroku apps:info -r server --json | python -c 'import json,sys;print json.load(sys.stdin)["app"]["name"]')
