@@ -1,55 +1,61 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { CarListComponent } from './car-list/car-list.component';
-import { CarService } from './shared/car/car.service';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { GiphyService } from './shared/giphy/giphy.service';
-import { CarEditComponent } from './car-edit/car-edit.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { OktaAuthGuard, OktaAuthModule, OktaCallbackComponent } from '@okta/okta-angular';
-import { AuthInterceptor } from './shared/okta/auth.interceptor';
 import { HomeComponent } from './home/home.component';
-
-const config = {
-  issuer: 'https://dev-158606.oktapreview.com/oauth2/default',
-  redirectUri: 'http://localhost:4200/implicit/callback',
-  clientId: '0oacybtd068HHoLtQ0h7'
-};
+import { MoneyComponent } from './money/money.component';
+import { TimeComponent } from './time/time.component';
+import { ThanksComponent } from './thanks/thanks.component';
+import { FocusDirective } from './focus.directive';
+import { NvD3Module } from 'ng2-nvd3';
+import 'd3';
+import 'nvd3';
+import { DonationService } from './shared/donation/donation.service';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    data: {
+      title: 'Donate @ Iterate'
+    }
   },
   {
-    path: 'car-list',
-    component: CarListComponent,
+    path: 'money',
+    component: MoneyComponent,
+    data: {
+      title: 'Donate Money to Open Source'
+    }
   },
   {
-    path: 'car-add',
-    component: CarEditComponent
+    path: 'time',
+    component: TimeComponent,
+    data: {
+      title: 'Donate Time to Open Source'
+    }
   },
   {
-    path: 'car-edit/:id',
-    component: CarEditComponent
-  },
-  {
-    path: 'implicit/callback',
-    component: OktaCallbackComponent
+    path: 'thank-you',
+    component: ThanksComponent,
+    data: {
+      title: 'Thanks for Your Donation @ Iterate!'
+    }
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarListComponent,
-    CarEditComponent,
-    HomeComponent
+    HomeComponent,
+    MoneyComponent,
+    TimeComponent,
+    ThanksComponent,
+    FocusDirective
   ],
   imports: [
     BrowserModule,
@@ -61,11 +67,10 @@ const appRoutes: Routes = [
     MatInputModule,
     MatListModule,
     MatToolbarModule,
-    RouterModule.forRoot(appRoutes),
-    OktaAuthModule.initAuth(config)
+    NvD3Module,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [CarService, GiphyService,
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  providers: [DonationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

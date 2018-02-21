@@ -1,0 +1,54 @@
+<mat-card>
+  <form #timeForm="ngForm" (ngSubmit)="save(timeForm.value)" autocomplete="off">
+    <input type="hidden" name="type" [(ngModel)]="donation.type">
+    <mat-card-content>
+      <p>By pledging to your time to an open source project, you're directly contributing to software that directly benefits developers worldwide!</p>
+
+      <p>Spending even a few spare hours of time fixing bugs, improving docs, or adding features to an open source project can positively impact hundreds of thousands of people.
+      </p>
+
+      <h2>Pledge to Donate Time to Open Source</h2>
+
+      <div class="form">
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Your Name" required name="name"
+                   [(ngModel)]="donation.name" #name appFocus autocomplete="name">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput type="email" placeholder="Your Email" required name="email"
+                   [(ngModel)]="donation.email" #email autocomplete="email">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput placeholder="Project Name" required name="projectName"
+                   [(ngModel)]="donation.projectName" #project autocomplete="projectName">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput type="number" step="1" value="0" min="0"
+                   placeholder="Hours to Donate" required name="hours"
+                   [(ngModel)]="donation.hours" #hours autocomplete="hours">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <input matInput type="url" placeholder="Project URL (optional)" name="url" #url>
+          </mat-form-field>
+        </p>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="stacked">
+      <button mat-raised-button color="primary" type="submit"
+              [disabled]="!timeForm.form.valid">
+        <span class="pledge">I Pledge</span>
+        <span class="pledge-description">To Donate the Amount Above</span>
+      </button><br>
+      <button mat-button routerLink="/home">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

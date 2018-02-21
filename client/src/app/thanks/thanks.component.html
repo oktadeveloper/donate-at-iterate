@@ -1,0 +1,30 @@
+<mat-card>
+  <mat-card-content>
+
+    <!-- Great movie: https://giphy.com/gifs/reactionseditor-high-five-best-friends-l1ug5sWBCJOOGzN84 -->
+    <div style="width:100%;height:0;padding-bottom:43%;position:relative;">
+      <iframe src="https://giphy.com/embed/l1ug5sWBCJOOGzN84" width="100%" height="100%" style="position:absolute"
+              frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    </div>
+    <p><a href="https://giphy.com/gifs/reactionseditor-high-five-best-friends-l1ug5sWBCJOOGzN84">via GIPHY</a></p>
+
+    <p>
+      You are super cool, awesome, and incredibly smart! Thanks for your pledge to donate &mdash; you are directly helping improve open source tools and libraries for developers everywhere! You're the best!
+    </p>
+
+    <blockquote>
+      - The Iterate Team (and developers everywhere)
+    </blockquote>
+
+    <h2>Fun Stats</h2>
+
+    <p>Donors like you have contributed a total of {{donations.time}} hours of time and {{donations.money | currency:'USD' }} to open source at Iterate. 👍</p>
+
+    <!-- pie chart -->
+    <nvd3 [options]="chartOptions" [data]="donationData"></nvd3>
+
+    <mat-card-actions class="stacked">
+      <button mat-raised-button color="primary" routerLink="/home">Start Over</button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>
