@@ -38,10 +38,16 @@ npm install && npm start
 
 ## Screenshots
 
-![Home](static/home.png)
-![Donate Money](static/donate-money.png)
-![Donate Time](static/donate-time.png)
-![Thank You](static/thank-you.png) 
+<table>
+<tr>
+<td><img src="static/home.png" alt="Home"></td>
+<td><img src="static/donate-money.png" alt="Donate Money"></td>
+</tr>
+<tr>
+<td><img src="static/donate-time.png" alt="Donate Time"></td>
+<td><img src="static/donate-thank-you.png" alt="Thank You"></td>
+</tr>
+</table>
 
 ## Help
 
