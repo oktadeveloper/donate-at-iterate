@@ -20,10 +20,11 @@ env:
 before_install:
   - jdk_switcher use oraclejdk8
   - java -version
+  - npm install -g @angular/cli
 install:
   - cd client && npm install
 script:
-  - yarn test && yarn build
+  - npm test && npm build
   - cd ../server && ./mvnw -q clean test && ./mvnw -q clean package -Pprod -DskipTests
 notifications:
   webhooks:
