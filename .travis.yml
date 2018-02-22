@@ -22,7 +22,7 @@ before_install:
   - java -version
   - npm install -g @angular/cli
 install:
-  - cd client && npm install
+  - cd client && rm package-lock.json && npm install
 script:
   - npm test && npm build
   - cd ../server && ./mvnw -q clean test && ./mvnw -q clean package -Pprod -DskipTests
