@@ -39,12 +39,10 @@ npm install && npm start
 ## Screenshots
 
 <div>
-  <img src="static/home.png" alt="Home" width="400">
-  <img src="static/donate-money.png" alt="Donate Money" width="400">
-</div>
-<div>
-  <img src="static/donate-time.png" alt="Donate Time" width="400">
-  <img src="static/thank-you.png" alt="Thank You" width="400">
+  <img src="static/home.png" alt="Home" width="800">
+  <img src="static/donate-money.png" alt="Donate Money" width="800">
+  <img src="static/donate-time.png" alt="Donate Time" width="800">
+  <img src="static/thank-you.png" alt="Thank You" width="800">
 </div>
 
 ## Help
