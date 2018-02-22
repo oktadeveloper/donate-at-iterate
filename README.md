@@ -2,7 +2,7 @@
  
 > Made with 💙 by [@oktadev](https://twitter.com/oktadev) for [Iterate Developer Conference](https://iterateconf.io).
 
-This app can be found online at https://donate-at-iterate.herokuapps.com. 
+This app can be found online at https://donate-at-iterate.herokuapp.com. 
 
 **Prerequisites:** [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and [Node.js](https://nodejs.org/).
 
