@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: donate-at-iterate-api
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:h2:file:./target/h2db/db/donate;DB_CLOSE_DELAY=-1
+    username: donate
+    password:
+  h2:
+    console:
+      enabled: false
+  profiles:
+    active: #spring.profiles.active#
+  jpa:
+    hibernate:
+      ddl-auto: update

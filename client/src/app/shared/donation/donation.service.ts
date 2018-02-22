@@ -17,7 +17,6 @@ export class DonationService {
   }
 
   save(donation: any): Observable<any> {
-    console.log('donation', donation);
     const endpoint = (donation.type === 'money') ? this.DONATE_MONEY_API : this.DONATE_TIME_API;
     return this.http.post(endpoint, donation);
   }
