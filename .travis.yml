@@ -25,13 +25,15 @@ before_install:
   # Repo for Yarn
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH=$HOME/.yarn/bin:$PATH
-  - yarn add global @angular/cli
 install:
   - yarn install
+before_script:
+  - yarn global add @angular/cli
 script:
-  - cd server && ./mvnw clean test
+  - cd server && ./mvnw -q clean test
   - cd ../client && yarn test
-  - cd ../server && ./mvnw package -Pprod -DskipTests
+  - cd ../server && ./mvnw -q package -Pprod -DskipTests
+  - cd ../client && yarn build
 notifications:
   webhooks:
     on_success: change  # options: [always|never|change] default: always
