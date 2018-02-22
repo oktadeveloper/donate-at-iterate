@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class DonationService {
-  public API = 'http://localhost:8080/api';
+  public API = environment.production ? 'https://donate-at-iterate-api.herokuapp.com/api' : 'http://localhost:8080/api';
   public DONATE_MONEY_API = this.API + '/donate-money';
   public DONATE_TIME_API = this.API + '/donate-time';
 

@@ -18,35 +18,25 @@ if ! echo "$(heroku plugins)" | grep -q heroku-cli-deploy; then
   heroku plugins:install heroku-cli-deploy
 fi
 
-if ! echo "$(git remote -v)" | grep -q iterate-donate-server; then
-  server_app=iterate-donate-server
-  heroku create -r server $server_app
-else
-  server_app=$(heroku apps:info -r server --json | python -c 'import json,sys;print json.load(sys.stdin)["app"]["name"]')
-fi
+server_app=donate-at-iterate-api
 serverUri="https://$server_app.herokuapp.com"
 
-if ! echo "$(git remote -v)" | grep -q donate-at-iterate; then
-  client_app=donate-at-iterate
-  heroku create -r client $client_app
-else
-  client_app=$(heroku apps:info -r client --json | python -c 'import json,sys;print json.load(sys.stdin)["app"]["name"]')
-fi
+client_app=donate-at-iterate
 clientUri="https://$client_app.herokuapp.com"
 
 # Deploy the server
 cd $r/server
 mvn clean package
 
-heroku deploy:jar target/*jar -r server -o "--server.port=\$PORT"
-heroku config:set -r server FORCE_HTTPS="true"
+heroku deploy:jar target/*jar --app $server_app -o "--server.port=\$PORT"
+heroku config:set -r heroku FORCE_HTTPS="true"
 
 # Deploy the client
 cd $r/client
 rm -rf dist
 # replace the server URL in the client
-sed -i -e "s|http://localhost:8080|$serverUri|g" $r/client/src/app/shared/donation/donation.service.ts
-yarn && ng build --prod --aot
+# sed -i -e "s|http://localhost:8080|$serverUri|g" $r/client/src/app/shared/donation/donation.service.ts
+yarn && yarn build
 cd dist
 
 cat << EOF > static.json
@@ -82,10 +72,6 @@ curl -s -L "$output_stream_url"
 
 rm build.json
 rm ../dist.tgz
-
-# cleanup changed files
-sed -i -e "s|$serverUri|http://localhost:8080|g" $r/client/src/app/shared/donation/donation.service.ts
-rm $r/client/src/app/shared/donation/donation.service.ts
 
 # show apps and URLs
 heroku open -r client
