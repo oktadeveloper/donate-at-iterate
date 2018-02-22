@@ -28,9 +28,9 @@ before_install:
 install:
   - yarn install
 script:
-  - ./mvnw clean test
-  - yarn test
-  - ./mvnw package -Pprod -DskipTests
+  - cd server && ./mvnw clean test
+  - cd ../client && yarn test
+  - cd ../server && ./mvnw package -Pprod -DskipTests
 notifications:
   webhooks:
     on_success: change  # options: [always|never|change] default: always
