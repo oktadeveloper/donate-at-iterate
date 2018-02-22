@@ -38,8 +38,10 @@ npm install && npm start
 
 ## Screenshots
 
-| ![Home](static/home.png)| ![Donate Money](static/donate-money.png) |
-| ![Donate Time](static/donate-time.png)| ![Thank You](static/thank-you.png) |
+![Home](static/home.png)
+![Donate Money](static/donate-money.png)
+![Donate Time](static/donate-time.png)
+![Thank You](static/thank-you.png) 
 
 ## Help
 

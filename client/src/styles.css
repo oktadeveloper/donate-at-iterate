@@ -22,16 +22,16 @@ mat-card-footer {
   font-size: .8em;
   font-style: italic;
   margin: 0 auto !important;
-  margin-bottom: -24px !important;
+  margin-bottom: -24px;
 }
 
-mat-card-actions.stacked button, mat-card-actions.stacked a {
+mat-card-actions.stacked button {
   width: 60%;
   max-width: 400px;
   min-width: 400px;
 }
 
-@media only screen and (min-device-width : 300px) and (max-device-width : 900px) {
+@media only screen and (orientation: portrait)  {
   mat-card-actions {
     margin-bottom: 5px !important;
   }
