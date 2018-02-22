@@ -18,17 +18,13 @@ env:
     - NODE_VERSION=9.5.0
     - SPRING_OUTPUT_ANSI_ENABLED=ALWAYS
     - SPRING_JPA_SHOW_SQL=false
-before_install:
+before_script:
   - jdk_switcher use oraclejdk8
   - java -version
-  - sudo /etc/init.d/postgresql stop
-  # Repo for Yarn
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH=$HOME/.yarn/bin:$PATH
-install:
-  - yarn install
-before_script:
   - yarn global add @angular/cli
+  - yarn install
 script:
   - cd server && ./mvnw -q clean test
   - cd ../client && yarn test
