@@ -38,16 +38,14 @@ npm install && npm start
 
 ## Screenshots
 
-<table>
-<tr>
-<td><img src="static/home.png" alt="Home"></td>
-<td><img src="static/donate-money.png" alt="Donate Money"></td>
-</tr>
-<tr>
-<td><img src="static/donate-time.png" alt="Donate Time"></td>
-<td><img src="static/donate-thank-you.png" alt="Thank You"></td>
-</tr>
-</table>
+<div>
+  <img src="static/home.png" alt="Home" width="400">
+  <img src="static/donate-money.png" alt="Donate Money" width="400">
+</div>
+<div>
+  <img src="static/donate-time.png" alt="Donate Time" width="400">
+  <img src="static/thank-you.png" alt="Thank You" width="400">
+</div>
 
 ## Help
 
