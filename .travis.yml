@@ -23,13 +23,13 @@ env:
     - NODE_VERSION=9.5.0
     - SPRING_OUTPUT_ANSI_ENABLED=ALWAYS
     - SPRING_JPA_SHOW_SQL=false
+    - PATH=./client/node_modules/.bin:$PATH
 before_install:
   - export CHROME_BIN=/usr/bin/google-chrome
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - jdk_switcher use oraclejdk8
   - java -version
-  - npm install -g @angular/cli
 install:
   - cd client && rm package-lock.json && npm install
 script:
