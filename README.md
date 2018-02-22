@@ -9,7 +9,7 @@ This app can be found online at https://donate-at-iterate.herokuapps.com.
 > [Okta](https://developer.okta.com/) has Authentication and User Management APIs that reduce development time with instant-on, scalable user infrastructure. Okta's intuitive API and expert support make it easy for developers to authenticate, manage and secure users and roles in any application.
 
 * [Getting Started](#getting-started)
-* [Links](#links)
+* [Screenshots](#screenshots)
 * [Help](#help)
 * [License](#license)
 
@@ -35,6 +35,11 @@ To run the client, cd into the `client` folder and run:
 ```bash
 npm install && npm start
 ```
+
+## Screenshots
+
+| ![Home](static/home.png)| ![Donate Money](static/donate-money.png) |
+| ![Donate Time](static/donate-time.png)| ![Thank You](static/thank-you.png) |
 
 ## Help
 

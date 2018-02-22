@@ -17,7 +17,15 @@ mat-card-actions {
   margin-bottom: 10px !important;
 }
 
-mat-card-actions.stacked button {
+mat-card-footer {
+  max-width: 600px;
+  font-size: .8em;
+  font-style: italic;
+  margin: 0 auto !important;
+  margin-bottom: -24px !important;
+}
+
+mat-card-actions.stacked button, mat-card-actions.stacked a {
   width: 60%;
   max-width: 400px;
   min-width: 400px;
