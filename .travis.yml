@@ -1,7 +1,5 @@
 os:
   - linux
-services:
-  - docker
 language: node_js
 node_js:
   - "9.5.0"
@@ -33,7 +31,7 @@ before_install:
 install:
   - cd client && rm package-lock.json && npm install
 script:
-  - npm test --watch=false && npm build
+  - ng test --watch=false && npm build
   - cd ../server && ./mvnw -q clean test && ./mvnw -q clean package -Pprod -DskipTests
 notifications:
   webhooks:
