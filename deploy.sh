@@ -74,4 +74,4 @@ rm build.json
 rm ../dist.tgz
 
 # show apps and URLs
-heroku open -r client
+heroku open --app $client_app
