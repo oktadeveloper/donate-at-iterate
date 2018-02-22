@@ -23,8 +23,8 @@ before_install:
 install:
   - cd client && npm install
 script:
-  - cd client && yarn test && yarn build
-  - cd server && ./mvnw -q clean test && ./mvnw -q clean package -Pprod -DskipTests
+  - yarn test && yarn build
+  - cd ../server && ./mvnw -q clean test && ./mvnw -q clean package -Pprod -DskipTests
 notifications:
   webhooks:
     on_success: change  # options: [always|never|change] default: always
