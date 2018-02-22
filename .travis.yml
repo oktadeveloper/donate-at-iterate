@@ -12,7 +12,6 @@ cache:
   directories:
     - node
     - node_modules
-    - $HOME/.gradle
     - $HOME/.yarn-cache
 env:
   global:
@@ -29,7 +28,6 @@ before_install:
 install:
   - yarn install
 script:
-  - chmod +x gradlew
   - ./mvnw clean test
   - yarn test
   - ./mvnw package -Pprod -DskipTests
