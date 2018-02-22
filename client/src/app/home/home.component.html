@@ -20,4 +20,7 @@
     <button mat-button mat-raised-button color="primary" routerLink="/money">I want to donate money</button>
     <button mat-button mat-raised-button color="primary" routerLink="/time">I want to donate time</button>
   </mat-card-actions>
+  <mat-card-footer>
+    <p>Donors like you have contributed a total of {{donations.time}} hours of time and {{donations.money | currency:'USD' }} to open source at Iterate. </p>
+  </mat-card-footer>
 </mat-card>

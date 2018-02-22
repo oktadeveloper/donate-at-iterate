@@ -29,7 +29,7 @@ cd $r/server
 mvn clean package
 
 heroku deploy:jar target/*jar --app $server_app -o "--server.port=\$PORT"
-heroku config:set -r heroku FORCE_HTTPS="true"
+heroku config:set --app $server_app FORCE_HTTPS="true"
 
 # Deploy the client
 cd $r/client

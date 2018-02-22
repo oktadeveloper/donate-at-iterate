@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { DonationService } from '../shared/donation/donation.service';
 import { Subscription } from 'rxjs/Subscription';
 import { D3ChartService } from './d3chart.service';
@@ -12,7 +12,7 @@ import { D3ChartService } from './d3chart.service';
   ],
   encapsulation: ViewEncapsulation.None
 })
-export class ThanksComponent implements OnInit {
+export class ThanksComponent implements OnInit, OnDestroy {
   donations: any = {
     time: 0,
     money: 0
@@ -40,5 +40,9 @@ export class ThanksComponent implements OnInit {
         }
       ];
     }, error => console.error(error));
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }
