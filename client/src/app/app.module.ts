@@ -18,7 +18,6 @@ import { DonationService } from './shared/donation/donation.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { DonationsComponent } from './donations/donations.component';
-import { DonatorsComponent } from './donors/donators.component';
 import { DonorsComponent } from './donors/donors.component';
 
 const appRoutes: Routes = [

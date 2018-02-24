@@ -59,7 +59,8 @@ public class DonateApplication {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.setAllowedOrigins(Arrays.asList("http://localhost:4200", "https://donate-at-iterate.herokuapp.com"));
+        config.setAllowedOrigins(Arrays.asList("http://localhost:4200",
+                "https://donate-at-iterate.herokuapp.com", "https://donate.iterateconf.io"));
         config.setAllowedMethods(Collections.singletonList("*"));
         config.setAllowedHeaders(Collections.singletonList("*"));
         source.registerCorsConfiguration("/**", config);
