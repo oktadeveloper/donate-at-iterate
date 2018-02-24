@@ -17,11 +17,13 @@ import 'nvd3';
 import { DonationService } from './shared/donation/donation.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { DonationsComponent } from './donations/donations.component';
+import { DonatorsComponent } from './donors/donators.component';
+import { DonorsComponent } from './donors/donors.component';
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {
-    path: 'home',
+    path: '',
     component: HomeComponent,
     data: {
       title: 'Donate @ Iterate'
@@ -47,6 +49,21 @@ const appRoutes: Routes = [
     data: {
       title: 'Thanks for Your Donation @ Iterate!'
     }
+  },
+  {
+    path: 'donations',
+    component: DonationsComponent,
+    data: {
+      title: 'SMALL ACTIONS, BIG IMPACT'
+    }
+  }
+  ,
+  {
+    path: 'donors',
+    component: DonorsComponent,
+    data: {
+      title: 'Awesome Donors'
+    }
   }
 ];
 
@@ -57,7 +74,9 @@ const appRoutes: Routes = [
     MoneyComponent,
     TimeComponent,
     ThanksComponent,
-    FocusDirective
+    FocusDirective,
+    DonationsComponent,
+    DonorsComponent
   ],
   imports: [
     BrowserModule,

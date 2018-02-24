@@ -1,0 +1,12 @@
+table {
+  margin: 0 auto
+}
+
+.lg {
+  font-size: 3em;
+}
+
+.sm {
+  font-size: 2em;
+  padding: 20px;
+}

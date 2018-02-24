@@ -16,6 +16,10 @@ export class DonationService {
     return this.http.get(this.API + '/cool-stats');
   }
 
+  getDonors() {
+    return this.http.get(this.API + '/donors');
+  }
+
   save(donation: any): Observable<any> {
     const endpoint = (donation.type === 'money') ? this.DONATE_MONEY_API : this.DONATE_TIME_API;
     return this.http.post(endpoint, donation);
