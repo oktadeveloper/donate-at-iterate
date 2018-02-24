@@ -156,5 +156,28 @@ public class DonationControllerTest {
                 .andExpect(jsonPath("$.money").value(DEFAULT_AMOUNT));
     }
 
+    @Test
+    @Transactional
+    public void getDonors() throws Exception {
+        DonationController controller = new DonationController(timeRepository, moneyRepository);
+        this.restWeightMockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+
+        // Create the donations
+        restWeightMockMvc.perform(post("/api/donate-money")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(money)))
+                .andExpect(status().isCreated());
+        restWeightMockMvc.perform(post("/api/donate-time")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(time)))
+                .andExpect(status().isCreated());
+
+        // Get donators
+        restWeightMockMvc.perform(get("/api/donors"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(jsonPath("$.time[0].hours").value(DEFAULT_HOURS))
+                .andExpect(jsonPath("$.money[0].amount").value(DEFAULT_AMOUNT));
+    }
 }
 

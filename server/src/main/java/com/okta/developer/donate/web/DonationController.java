@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -76,6 +77,20 @@ public class DonationController {
                 .filter(d -> d.getHours() != null)
                 .mapToLong(TimeDonation::getHours).sum();
         return new DonationStats(time, money);
+    }
+
+    @GetMapping("/donors")
+    public Map<String, Collection> donors() {
+        Collection<MoneyDonation> money = moneyRepository.findAll().stream()
+                .filter(d -> d.getAmount() != null)
+                .collect(Collectors.toList());
+        Collection<TimeDonation> time = timeRepository.findAll().stream()
+                .filter(d -> d.getHours() != null)
+                .collect(Collectors.toList());
+        Map<String, Collection> data = new HashMap<>();
+        data.put("money", money);
+        data.put("time", time);
+        return data;
     }
 
     /**
