@@ -11,9 +11,9 @@
 
     <table>
       <tr>
-        <td class="lg money">{{donations.money | currency:'USD'}}</td>
+        <td class="lg money">{{donations.money | currency:'USD' : 'symbol' : '1.0-0'}}</td>
         <td class="sm">and</td>
-        <td class="lg time">{{donations.time}} hours</td>
+        <td class="lg time">{{donations.time | number : '1.0-0'}} hours</td>
       </tr>
     </table>
     <h2>...since the start of Iterate!</h2>

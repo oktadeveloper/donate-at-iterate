@@ -7,11 +7,17 @@
         <th class="name">Name</th>
         <th>Hours</th>
       </tr>
+      </thead>
+      <tbody>
       <tr *ngFor="let h of hours">
         <td>{{ h.name }}</td>
-        <td>{{ h.hours }}</td>
+        <td>{{ h.hours | number : '1.0-0' }}</td>
       </tr>
-      </thead>
+      <tr>
+        <td class="total-label">Total</td>
+        <td class="total-value time">{{totalHours | number : '1.0-0'}}</td>
+      </tr>
+      </tbody>
     </table>
   </mat-card-content>
 </mat-card>
@@ -25,11 +31,17 @@
         <th class="name">Name</th>
         <th>Amount</th>
       </tr>
+      </thead>
+      <tbody>
       <tr *ngFor="let d of dollars">
         <td>{{ d.name }}</td>
-        <td>{{ d.amount | currency:'USD' }}</td>
+        <td>{{ d.amount | currency:'USD' : 'symbol' : '1.0-0' }}</td>
       </tr>
-      </thead>
+      <tr>
+        <td class="total-label">Total</td>
+        <td class="total-value money">{{totalDollars | currency:'USD' : 'symbol' : '1.0-0'}}</td>
+      </tr>
+      </tbody>
     </table>
   </mat-card-content>
 </mat-card>

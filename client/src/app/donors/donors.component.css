@@ -3,14 +3,50 @@ mat-card-title {
 }
 
 table {
-  max-width: 500px;
+  max-width: 300px;
   margin: 0 auto;
+  border-collapse: collapse;
 }
 
 th, td {
   text-align: left;
+  padding: 3px;
+}
+
+th {
+  color: darkgray;
+}
+
+tbody tr:nth-child(even) {
+  background-color: dimgray;
+}
+
+tbody tr:last-child {
+  background-color: transparent;
+}
+
+tbody tr td:last-child {
+  text-align: right;
 }
 
 .name {
   width: 400px;
+}
+
+table thead tr:last-child {
+  border-bottom: 1px solid silver !important;
+}
+
+table tbody tr:last-child {
+  border-top: 1px solid silver !important;
+}
+
+.total-label, .total-value {
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.total-label {
+  text-align: right;
+  padding-right: 5px;
 }
