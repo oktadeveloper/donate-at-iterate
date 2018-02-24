@@ -7,7 +7,7 @@ body {
   background-color: #424242;
 }
 
-mat-card-content {
+mat-card-content, mat-card-title {
   max-width: 600px;
   margin: 0 auto;
 }
@@ -71,6 +71,14 @@ a {
 
 mat-form-field {
   min-width: 300px;
+}
+
+.time {
+  color: #13C0f9
+}
+
+.money {
+  color: #15F94E;
 }
 
 footer {

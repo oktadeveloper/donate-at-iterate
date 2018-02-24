@@ -1,0 +1,35 @@
+<mat-card>
+  <mat-card-title class="time">Time Donated</mat-card-title>
+  <mat-card-content>
+    <table>
+      <thead>
+      <tr>
+        <th class="name">Name</th>
+        <th>Hours</th>
+      </tr>
+      <tr *ngFor="let h of hours">
+        <td>{{ h.name }}</td>
+        <td>{{ h.hours }}</td>
+      </tr>
+      </thead>
+    </table>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-title class="money">Money Donated</mat-card-title>
+  <mat-card-content>
+    <table>
+      <thead>
+      <tr>
+        <th class="name">Name</th>
+        <th>Amount</th>
+      </tr>
+      <tr *ngFor="let d of dollars">
+        <td>{{ d.name }}</td>
+        <td>{{ d.amount | currency:'USD' }}</td>
+      </tr>
+      </thead>
+    </table>
+  </mat-card-content>
+</mat-card>

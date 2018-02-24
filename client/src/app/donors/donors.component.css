@@ -1,0 +1,16 @@
+mat-card-title {
+  text-align: center;
+}
+
+table {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+th, td {
+  text-align: left;
+}
+
+.name {
+  width: 400px;
+}
