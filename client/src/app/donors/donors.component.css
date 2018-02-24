@@ -18,7 +18,7 @@ th {
 }
 
 tbody tr:nth-child(even) {
-  background-color: #4F4F4F;
+  background-color: #5C5C5C;
 }
 
 tbody tr:last-child {
