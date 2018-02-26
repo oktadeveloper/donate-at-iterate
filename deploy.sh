@@ -49,29 +49,7 @@ cat << EOF > static.json
 }
 EOF
 
-rm -f ../dist.tgz
-tar -zcvf ../dist.tgz .
-
-# TODO replace this with the heroku-cli-static command `heroku static:deploy`
-source=$(curl -n -X POST https://api.heroku.com/apps/$client_app/sources -H 'Accept: application/vnd.heroku+json; version=3')
-get_url=$(echo "$source" | python -c 'import json,sys;print json.load(sys.stdin)["source_blob"]["get_url"]')
-put_url=$(echo "$source" | python -c 'import json,sys;print json.load(sys.stdin)["source_blob"]["put_url"]')
-curl "$put_url" -X PUT -H 'Content-Type:' --data-binary @../dist.tgz
-cat << EOF > build.json
-{
-  "buildpacks": [{ "url": "https://github.com/heroku/heroku-buildpack-static" }],
-  "source_blob": { "url" : "$get_url" }
-}
-EOF
-build_out=$(curl -n -s -X POST https://api.heroku.com/apps/$client_app/builds \
-  -d "$(cat build.json)" \
-  -H 'Accept: application/vnd.heroku+json; version=3' \
-  -H "Content-Type: application/json")
-output_stream_url=$(echo "$build_out" | python -c 'import json,sys;print json.load(sys.stdin)["output_stream_url"]')
-curl -s -L "$output_stream_url"
-
-rm build.json
-rm ../dist.tgz
+heroku static:deploy --app $client_app
 
 # show apps and URLs
 heroku open --app $client_app
