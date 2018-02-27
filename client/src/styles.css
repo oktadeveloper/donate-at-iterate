@@ -12,6 +12,10 @@ mat-card-content, mat-card-title {
   margin: 0 auto;
 }
 
+.mat-card-content, .mat-button {
+  font-size: 16px;
+}
+
 mat-card-actions {
   text-align: center;
   margin-bottom: 10px !important;
